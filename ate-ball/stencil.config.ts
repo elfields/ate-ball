@@ -1,7 +1,7 @@
 import { Config } from '@stencil/core';
 
 export const config: Config = {
-  namespace: 'ate-ball',
+  namespace: 'ate-ball2',
   outputTargets: [
     {
       type: 'dist',
