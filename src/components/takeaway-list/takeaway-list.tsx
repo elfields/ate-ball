@@ -1,5 +1,5 @@
-import { Component, Prop, h } from '@stencil/core';
-import { format } from '../../utils/utils';
+import { Component, Prop, h, Event, EventEmitter, State } from '@stencil/core';
+// import { format } from '../../utils/utils';
 
 @Component({
   tag: 'takeaway-list',
@@ -7,26 +7,47 @@ import { format } from '../../utils/utils';
   shadow: true,
 })
 export class TakeawayList {
-  /**
-   * The first name
-   */
-  @Prop() first: string;
+  @Prop() takeawayNames: string[]; 
 
-  /**
-   * The middle name
-   */
-  @Prop() middle: string;
+  @State() value: string = '';
 
-  /**
-   * The last name
-   */
-  @Prop() last: string;
+  @Event() inputChange: EventEmitter; 
+  @Event() submit: EventEmitter; 
+  @Event() takeawayAdded: EventEmitter; 
 
-  private getText(): string {
-    return format(this.first, this.middle, this.last);
+  handleOnChange(e) {
+    this.value = e.target.value;
+    this.inputChange.emit(this.value)
+  }
+
+  handleOnSubmit(e) { 
+    e.preventDefault(); 
+    this.submit.emit(this.value); 
+    this.value = ''; 
+  }
+
+  handleTakeawayAdded(e) {
+    this.takeawayNames.unshift(this.value);
   }
 
   render() {
-    return <div>Hello, World! I'm {this.getText()}</div>;
+    const handleOnChange = (e) => this.handleOnChange(e); 
+    const handleOnSubmit = (e) => this.handleOnSubmit(e); 
+    const handleTakeawayAdded = (e) => this.handleTakeawayAdded(e);
+
+    console.log(this.takeawayNames);
+
+    return (
+     <form class="takeaway-list-form" onSubmit={handleOnSubmit}>
+      <input 
+        type="text"
+        onInput={handleOnChange}
+        value={this.value}
+      />
+      <button onClick={() => handleTakeawayAdded}>
+        Add Takeaway
+      </button>
+     </form>
+    ); 
   }
 }

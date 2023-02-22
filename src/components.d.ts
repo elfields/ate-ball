@@ -6,56 +6,41 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface TakeawayList {
+        "takeawayNames": string[];
     }
 }
+export interface TakeawayListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLTakeawayListElement;
+}
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLTakeawayListElement extends Components.TakeawayList, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLTakeawayListElement: {
+        prototype: HTMLTakeawayListElement;
+        new (): HTMLTakeawayListElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "takeaway-list": HTMLTakeawayListElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface TakeawayList {
+        "onInputChange"?: (event: TakeawayListCustomEvent<any>) => void;
+        "onSubmit"?: (event: TakeawayListCustomEvent<any>) => void;
+        "onTakeawayAdded"?: (event: TakeawayListCustomEvent<any>) => void;
+        "takeawayNames"?: string[];
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "takeaway-list": TakeawayList;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "takeaway-list": LocalJSX.TakeawayList & JSXBase.HTMLAttributes<HTMLTakeawayListElement>;
         }
     }
 }
