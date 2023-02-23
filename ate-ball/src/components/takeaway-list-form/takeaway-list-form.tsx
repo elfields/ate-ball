@@ -30,13 +30,14 @@ export class TakeawayListForm {
 
     return (
       <form class="takeaway-list-form" onSubmit={handleOnSubmit}>
-        <input
+        <input id="add-takeaway-textbox"
           type="text"
           onInput={handleOnChange}
           value={this.value}
         />
-        <button>
-          Add Takeaway #{this.takeawayNamesLength + 1}
+        <button id="add-takeaway-button">
+          Add Takeaway 
+          {/* #{this.takeawayNamesLength + 1} */}
         </button>
          
       </form>

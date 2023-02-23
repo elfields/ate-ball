@@ -19,6 +19,7 @@ export class AteBallApp {
         <h3>Your Favourite Takeaways</h3>
         <takeaway-list takeawayNames ={this.names} />
         <takeaway-list-form onSubmit={handleSubmit} onInputChange={handleOnChange} takeawayNamesLength={this.names.length}/>
+        
       </div>
     );
   }
