@@ -2,6 +2,10 @@
   display: block;
 }
 
+body {
+  background-color: #e0ddca;
+}
+
 h3 {
   padding: 10px; 
   margin: 12px;

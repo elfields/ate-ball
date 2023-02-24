@@ -24,6 +24,8 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface NavBar {
+    }
     interface TakeawayList {
         "takeawayNames": TakeawayName[];
     }
@@ -48,6 +50,12 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLNavBarElement extends Components.NavBar, HTMLStencilElement {
+    }
+    var HTMLNavBarElement: {
+        prototype: HTMLNavBarElement;
+        new (): HTMLNavBarElement;
+    };
     interface HTMLTakeawayListElement extends Components.TakeawayList, HTMLStencilElement {
     }
     var HTMLTakeawayListElement: {
@@ -63,6 +71,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "ate-ball-app": HTMLAteBallAppElement;
         "my-component": HTMLMyComponentElement;
+        "nav-bar": HTMLNavBarElement;
         "takeaway-list": HTMLTakeawayListElement;
         "takeaway-list-form": HTMLTakeawayListFormElement;
     }
@@ -84,6 +93,8 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface NavBar {
+    }
     interface TakeawayList {
         "takeawayNames"?: TakeawayName[];
     }
@@ -96,6 +107,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "ate-ball-app": AteBallApp;
         "my-component": MyComponent;
+        "nav-bar": NavBar;
         "takeaway-list": TakeawayList;
         "takeaway-list-form": TakeawayListForm;
     }
@@ -106,6 +118,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "ate-ball-app": LocalJSX.AteBallApp & JSXBase.HTMLAttributes<HTMLAteBallAppElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "nav-bar": LocalJSX.NavBar & JSXBase.HTMLAttributes<HTMLNavBarElement>;
             "takeaway-list": LocalJSX.TakeawayList & JSXBase.HTMLAttributes<HTMLTakeawayListElement>;
             "takeaway-list-form": LocalJSX.TakeawayListForm & JSXBase.HTMLAttributes<HTMLTakeawayListFormElement>;
         }

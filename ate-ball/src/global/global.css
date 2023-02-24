@@ -1,12 +1,3 @@
-:root { 
-    --mono-70: #13152c;
-    --mono-50: #313436;
-    --mono-30: #5b6063;
-    --mono-10: #ececec; 
-    --mono-05: #f1f2f3; 
-    --white: #ffffff; 
-}
-
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
     font-size: 14px; 

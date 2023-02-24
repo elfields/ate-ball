@@ -9,8 +9,8 @@
 }
 
 .takeaway-buttons {
-  background-color: black;
-  color: white;
+  background-color: #24252a;
+  color: #edf0f1;
   padding: 0 12px;
   border: none; 
   height: 30px; 
@@ -18,10 +18,12 @@
   margin: 10px;
   cursor: pointer;
   transition-duration: 0.4s;
+  font: inherit;
+  font-weight: 500;
 }
 
 .takeaway-buttons:hover {
-  background-color: green;
+  background-color: #0088a9;
   color: white;
 }
 

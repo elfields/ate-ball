@@ -20,6 +20,7 @@ export class AteBallApp {
 
     return (
       <div class="ate-ball-app">
+        <nav-bar></nav-bar>
         <h3>Your Favourite Takeaways</h3>
         {/* adding in separate components to main app with event handling included*/}
         <takeaway-list takeawayNames ={this.names} />
