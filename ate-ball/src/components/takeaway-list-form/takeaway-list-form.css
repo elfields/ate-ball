@@ -8,9 +8,7 @@
   padding: 10px;
 }
 
-
-
-#add-takeaway-button {
+.takeaway-buttons {
   background-color: black;
   color: white;
   padding: 0 12px;
@@ -22,7 +20,7 @@
   transition-duration: 0.4s;
 }
 
-#add-takeaway-button:hover {
+.takeaway-buttons:hover {
   background-color: green;
   color: white;
 }
