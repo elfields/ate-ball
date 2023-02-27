@@ -99,9 +99,9 @@ declare namespace LocalJSX {
         "takeawayNames"?: TakeawayName[];
     }
     interface TakeawayListForm {
-        "onClick"?: (event: TakeawayListFormCustomEvent<any>) => void;
+        "onClickAdd"?: (event: TakeawayListFormCustomEvent<any>) => void;
         "onInputChange"?: (event: TakeawayListFormCustomEvent<any>) => void;
-        "onSubmit"?: (event: TakeawayListFormCustomEvent<any>) => void;
+        "onSubmitTakeaway"?: (event: TakeawayListFormCustomEvent<any>) => void;
         "takeawayNamesLength"?: number;
     }
     interface IntrinsicElements {
