@@ -34,11 +34,10 @@ export class TakeawayListForm {
   // attempt to create random takeaway function but is currently not working
   randomTakeaway() {
     // new array created with different takeaway cuisines - could potentially pull from API in future
-    var takeawayArray = new Array('Chinese', 'Thai', 'Indian', 'Pizza');
+    var takeawayArray = new Array('Chinese', 'Thai', 'Indian', 'Pizza', 'Fish & Chips', 'Parmo');
     var random = takeawayArray[Math.floor(Math.random() * takeawayArray.length)];
     // targetting random takeaway button element via id
     this.selectedTakeaway = random;
-    console.log(this.selectedTakeaway);
   }
 
   render() {
