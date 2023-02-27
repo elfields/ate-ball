@@ -10,6 +10,7 @@ export class NavBar {
   render() {
     return (
       <header id='nav-container'>
+        {/* <img class="logo" src="../assets/ateball-logo.png" alt="ate-ball logo"></img> */}
         <ul id="nav-items-container"> 
           <li class="nav-items" id="nav-home-item"><a href="#">Home</a></li>
           <li class="nav-items" id="nav-about-item"><a href="#">About </a></li>
