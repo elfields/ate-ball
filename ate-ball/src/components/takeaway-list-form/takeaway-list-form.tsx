@@ -13,7 +13,7 @@ export class TakeawayListForm {
   @State() selectedTakeaway: string = 'eat at home peasant';
 
   @Event() inputChange: EventEmitter;
-  @Event() submitTakeaway: EventEmitter;
+  @Event() submit: EventEmitter;
   @Event() clickAdd: EventEmitter;
 
   handleOnChange(e) {
@@ -27,7 +27,8 @@ export class TakeawayListForm {
     // the usual default action for when a form is submitted is prevented
     e.preventDefault();
     // instead, the submit event is emitted in relation to change in the value string
-    this.submitTakeaway.emit(this.value);
+    this.submit.emit(this.value);
+    console.log(this.submit.emit(this.value))
     this.value = '';
   }
 
@@ -36,7 +37,6 @@ export class TakeawayListForm {
     // new array created with different takeaway cuisines - could potentially pull from API in future
     var takeawayArray = new Array('Chinese', 'Thai', 'Indian', 'Pizza', 'Fish & Chips', 'Parmo');
     var random = takeawayArray[Math.floor(Math.random() * takeawayArray.length)];
-    // targetting random takeaway button element via id
     this.selectedTakeaway = random;
   }
 
@@ -47,7 +47,6 @@ export class TakeawayListForm {
 
     return (
       <div>
-        <h3>Your Favourite Takeaways</h3>
         <form class="takeaway-list-form" onSubmit={handleOnSubmit}>
           {/* textbox for input of takeaways, using event to handle change to text input */}
           <input id="add-takeaway-textbox" type="text" onInput={handleOnChange} value={this.value} />

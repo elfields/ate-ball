@@ -15,22 +15,21 @@ export class AteBallApp {
   render() {
     // variables created to shorten input for event handling 
     const handleOnChange = (e) => this.handleOnChange(e);
-    const handleSubmit = (e) => this.handleSubmit(e);
+    const handleOnSubmit = (e) => this.handleOnSubmit(e);
     // const handleOnClick = (e) => this.handleOnClick(e); 
 
     return (
       <div class="ate-ball-app">
         <nav-bar></nav-bar>
+        <h3>Your Favourite Takeaways</h3>
         {/* adding in separate components to main app with event handling included*/}
         <takeaway-list takeawayNames ={this.names} />
-        <takeaway-list-form onSubmit={handleSubmit} onInputChange={handleOnChange} takeawayNamesLength={this.names.length} />
-        {/* // onClick={handleOnClick} */}
-        
+        <takeaway-list-form onSubmit={handleOnSubmit} onInputChange={handleOnChange} takeawayNamesLength={this.names.length} />
       </div>
     );
   }
 
-  private handleSubmit(e) {
+  private handleOnSubmit(e) {
     // prevents default action of submitting form event
     e.preventDefault();
     // if something is input into the text box, then return the string 
@@ -50,9 +49,5 @@ export class AteBallApp {
     // this.text defined as the data input from the event 
     this.text = e.detail;
   }
-
-  // private handleOnClick(e) {
-  //   this.text = '';  
-  // }
 
 }
