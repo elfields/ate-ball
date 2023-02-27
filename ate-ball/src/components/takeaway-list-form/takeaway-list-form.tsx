@@ -47,6 +47,7 @@ export class TakeawayListForm {
 
     return (
       <div>
+        <h3>Your Favourite Takeaways</h3>
         <form class="takeaway-list-form" onSubmit={handleOnSubmit}>
           {/* textbox for input of takeaways, using event to handle change to text input */}
           <input id="add-takeaway-textbox" type="text" onInput={handleOnChange} value={this.value} />
