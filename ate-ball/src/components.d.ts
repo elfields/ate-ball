@@ -32,6 +32,11 @@ export namespace Components {
     interface TakeawayListForm {
         "takeawayNamesLength": number;
     }
+    interface TakeawayListItem {
+        "takeawayNames": TakeawayName[];
+    }
+    interface TakeawayListRandomiser {
+    }
 }
 export interface TakeawayListFormCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -68,12 +73,26 @@ declare global {
         prototype: HTMLTakeawayListFormElement;
         new (): HTMLTakeawayListFormElement;
     };
+    interface HTMLTakeawayListItemElement extends Components.TakeawayListItem, HTMLStencilElement {
+    }
+    var HTMLTakeawayListItemElement: {
+        prototype: HTMLTakeawayListItemElement;
+        new (): HTMLTakeawayListItemElement;
+    };
+    interface HTMLTakeawayListRandomiserElement extends Components.TakeawayListRandomiser, HTMLStencilElement {
+    }
+    var HTMLTakeawayListRandomiserElement: {
+        prototype: HTMLTakeawayListRandomiserElement;
+        new (): HTMLTakeawayListRandomiserElement;
+    };
     interface HTMLElementTagNameMap {
         "ate-ball-app": HTMLAteBallAppElement;
         "my-component": HTMLMyComponentElement;
         "nav-bar": HTMLNavBarElement;
         "takeaway-list": HTMLTakeawayListElement;
         "takeaway-list-form": HTMLTakeawayListFormElement;
+        "takeaway-list-item": HTMLTakeawayListItemElement;
+        "takeaway-list-randomiser": HTMLTakeawayListRandomiserElement;
     }
 }
 declare namespace LocalJSX {
@@ -101,8 +120,14 @@ declare namespace LocalJSX {
     interface TakeawayListForm {
         "onClickAdd"?: (event: TakeawayListFormCustomEvent<any>) => void;
         "onInputChange"?: (event: TakeawayListFormCustomEvent<any>) => void;
+        "onRemove"?: (event: TakeawayListFormCustomEvent<any>) => void;
         "onSubmit"?: (event: TakeawayListFormCustomEvent<any>) => void;
         "takeawayNamesLength"?: number;
+    }
+    interface TakeawayListItem {
+        "takeawayNames"?: TakeawayName[];
+    }
+    interface TakeawayListRandomiser {
     }
     interface IntrinsicElements {
         "ate-ball-app": AteBallApp;
@@ -110,6 +135,8 @@ declare namespace LocalJSX {
         "nav-bar": NavBar;
         "takeaway-list": TakeawayList;
         "takeaway-list-form": TakeawayListForm;
+        "takeaway-list-item": TakeawayListItem;
+        "takeaway-list-randomiser": TakeawayListRandomiser;
     }
 }
 export { LocalJSX as JSX };
@@ -121,6 +148,8 @@ declare module "@stencil/core" {
             "nav-bar": LocalJSX.NavBar & JSXBase.HTMLAttributes<HTMLNavBarElement>;
             "takeaway-list": LocalJSX.TakeawayList & JSXBase.HTMLAttributes<HTMLTakeawayListElement>;
             "takeaway-list-form": LocalJSX.TakeawayListForm & JSXBase.HTMLAttributes<HTMLTakeawayListFormElement>;
+            "takeaway-list-item": LocalJSX.TakeawayListItem & JSXBase.HTMLAttributes<HTMLTakeawayListItemElement>;
+            "takeaway-list-randomiser": LocalJSX.TakeawayListRandomiser & JSXBase.HTMLAttributes<HTMLTakeawayListRandomiserElement>;
         }
     }
 }

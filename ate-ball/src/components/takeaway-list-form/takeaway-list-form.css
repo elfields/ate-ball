@@ -20,6 +20,7 @@
   transition-duration: 0.4s;
   font: inherit;
   font-weight: 500;
+  float: left;
 }
 
 .takeaway-buttons:hover {
@@ -37,17 +38,23 @@
   border: 2px solid grey;
 }
 
+#remove-takeaway-button {
+  position: relative;
+  top: -30px;
+}
+
 #random-takeaway-button {
   position: relative; 
-  left: 30px;
-  top: -30px;
+  left: -295px;
+  top: 30px;
 }
 
 h2 {
   position: relative; 
   left: 18px;
-  top: -42px;
+  top: 42px;
   padding: 10px; 
   margin: 12px;
   font-size: 20px;
+  clear: both;
 }

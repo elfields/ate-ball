@@ -1,4 +1,5 @@
 import { Component, h, Prop, Event, EventEmitter, State } from '@stencil/core';
+import { TakeawayName } from '../../models/takeawayName';
 
 @Component({
   tag: 'takeaway-list-form',
@@ -10,11 +11,14 @@ export class TakeawayListForm {
   @Prop() takeawayNamesLength: number;
 
   @State() value: string = '';
-  @State() selectedTakeaway: string = 'eat at home peasant';
+  @State() selectedTakeaway: string = '';
+  @State() names: TakeawayName[] = []; 
+
 
   @Event() inputChange: EventEmitter;
   @Event() submit: EventEmitter;
   @Event() clickAdd: EventEmitter;
+  @Event() remove: EventEmitter; 
 
   handleOnChange(e) {
     // allows to target where to listen for the event - listen for a change in value
@@ -40,6 +44,7 @@ export class TakeawayListForm {
     this.selectedTakeaway = random;
   }
 
+
   render() {
     // shorten input when handling events
     const handleOnChange = e => this.handleOnChange(e);
@@ -55,7 +60,7 @@ export class TakeawayListForm {
           </button>
         </form>
         <button class="takeaway-buttons" id="random-takeaway-button" value="Add Random Takeaway" onClick={() => this.randomTakeaway()}>
-        Random Selection
+          Random Selection
         </button>
         <h2>Your selected takeaway is: {this.selectedTakeaway}</h2>
       </div>

@@ -23,6 +23,7 @@ export class AteBallApp {
         <nav-bar></nav-bar>
         <h3>Your Favourite Takeaways</h3>
         {/* adding in separate components to main app with event handling included*/}
+        {/* <takeaway-list-item></takeaway-list-item> */}
         <takeaway-list takeawayNames ={this.names} />
         <takeaway-list-form onSubmit={handleOnSubmit} onInputChange={handleOnChange} takeawayNamesLength={this.names.length} />
       </div>
@@ -42,7 +43,8 @@ export class AteBallApp {
     this.text = '';
     // use of spread operator to copy array with existing names and merge with newly inputted names 
     this.names = [...this.names, newTakeawayName];
-    
+    const updatedTakeawayArray = this.names; 
+    console.log(updatedTakeawayArray);
   }
 
   private handleOnChange(e) {
@@ -51,3 +53,5 @@ export class AteBallApp {
   }
 
 }
+
+

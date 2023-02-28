@@ -1,5 +1,6 @@
 import { Component, h, Prop } from '@stencil/core';
 import { TakeawayName } from '../../models/takeawayName';
+// import { TakeawayListItem } from '../takeaway-list-item/takeaway-list-item';
 
 @Component({
   tag: 'takeaway-list',
@@ -12,12 +13,11 @@ export class TakeawayList {
   render() {
     return (
       <ul class="takeaway-list">
-      {
-        this.takeawayNames.map((name: TakeawayName) => (
+        {/* <TakeawayListItem></TakeawayListItem> */}
+        {this.takeawayNames.map((name: TakeawayName) => (
           <li>{name.text}</li>
-        ))
-      }
-    </ul>
+          ))}
+      </ul>
     );
   }
 
